@@ -5,26 +5,94 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
-    private const int EraserRadiusPixels = 80;
+    [Header("Brush Settings")]
+    [SerializeField, Tooltip("Alpha mask texture. Let it empty to use default circle.")] 
+    private Texture2D brushTexture;
+    [SerializeField, Tooltip("Size of the brush tip in pixels.")] 
+    private int brushSize;
+
+    [Header("Reset Settings")]
+    [SerializeField, Tooltip("Time in seconds to reset after no touch.")]
+    private float idleResetTime;
+    [SerializeField, Tooltip("If true, resets after idle time.")]
+    private bool resetOnIdle = true;
 
     private RawImage targetRawImage;
     private RectTransform rectTransform;
     private Canvas parentCanvas;
+
+    private Color32[] brushPixels;
+    private int brushWidth;
+    private int brushHeight;
+    private Texture originalTexture;
     private Texture2D runtimeTexture;
     private Color32[] pixels;
     private bool textureDirty;
     private bool hasLastPoint;
     private Vector2Int lastTexturePoint;
+    private float currentIdleTime;
+    private bool isScratched;
+    private ConfigManager config;
 
     private void Awake()
     {
+        config = new();
+        idleResetTime = int.Parse(config.GetValue("GameSettings", "idleResetTime", "5"));
+        brushSize = int.Parse(config.GetValue("GameSettings", "brushSize", "120"));
+
         targetRawImage = GetComponent<RawImage>();
         rectTransform = targetRawImage.rectTransform;
         parentCanvas = GetComponentInParent<Canvas>();
+        originalTexture = targetRawImage.texture;
         targetRawImage.material = null;
         targetRawImage.color = Color.white;
         targetRawImage.uvRect = new Rect(0f, 0f, 1f, 1f);
+        InitializeBrush();
         InitializeRuntimeTexture();
+    }
+
+    private void InitializeBrush()
+    {
+        if (brushTexture != null)
+        {
+            brushWidth = brushSize > 0 ? brushSize : brushTexture.width;
+            float aspect = (float)brushTexture.height / brushTexture.width;
+            brushHeight = brushSize > 0 ? Mathf.RoundToInt(brushSize * aspect) : brushTexture.height;
+
+            RenderTexture rt = RenderTexture.GetTemporary(brushWidth, brushHeight, 0, RenderTextureFormat.ARGB32);
+            Graphics.Blit(brushTexture, rt);
+            
+            RenderTexture previous = RenderTexture.active;
+            RenderTexture.active = rt;
+            
+            Texture2D readableBrush = new Texture2D(brushWidth, brushHeight, TextureFormat.RGBA32, false);
+            readableBrush.ReadPixels(new Rect(0, 0, brushWidth, brushHeight), 0, 0);
+            readableBrush.Apply();
+            
+            RenderTexture.active = previous;
+            RenderTexture.ReleaseTemporary(rt);
+            
+            brushPixels = readableBrush.GetPixels32();
+            Destroy(readableBrush);
+        }
+        else
+        {
+            brushWidth = brushSize > 0 ? brushSize : 160;
+            brushHeight = brushWidth;
+            brushPixels = new Color32[brushWidth * brushHeight];
+            int radius = brushWidth / 2;
+            int radiusSquared = radius * radius;
+            for (int y = 0; y < brushHeight; y++)
+            {
+                for (int x = 0; x < brushWidth; x++)
+                {
+                    int dx = x - radius;
+                    int dy = y - radius;
+                    byte alpha = (dx * dx + dy * dy <= radiusSquared) ? (byte)255 : (byte)0;
+                    brushPixels[y * brushWidth + x] = new Color32(0, 0, 0, alpha);
+                }
+            }
+        }
     }
 
     private void Update()
@@ -32,9 +100,22 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         bool handledTouch = HandleTouchInputFallback();
         bool handledMouse = HandleMouseInputFallback();
 
-        if (!handledTouch && !handledMouse)
+        if (handledTouch || handledMouse)
+        {
+            currentIdleTime = 0f;
+        }
+        else
         {
             hasLastPoint = false;
+
+            if (resetOnIdle && isScratched)
+            {
+                currentIdleTime += Time.deltaTime;
+                if (currentIdleTime >= idleResetTime)
+                {
+                    ResetScratch();
+                }
+            }
         }
     }
 
@@ -139,13 +220,17 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private void InitializeRuntimeTexture()
     {
-        if (targetRawImage.texture == null)
+        if (originalTexture == null)
         {
             return;
         }
 
-        Texture sourceTexture = targetRawImage.texture;
-        runtimeTexture = ExtractTexture(sourceTexture);
+        if (runtimeTexture != null)
+        {
+            Destroy(runtimeTexture);
+        }
+
+        runtimeTexture = ExtractTexture(originalTexture);
         runtimeTexture.filterMode = FilterMode.Point;
         runtimeTexture.wrapMode = TextureWrapMode.Clamp;
         runtimeTexture.anisoLevel = 0;
@@ -153,6 +238,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         targetRawImage.texture = runtimeTexture;
         textureDirty = true;
         hasLastPoint = false;
+        
+        isScratched = false;
+        currentIdleTime = 0f;
     }
 
     private Texture2D ExtractTexture(Texture sourceTexture)
@@ -204,51 +292,67 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
         else
         {
-            EraseCircle(currentPoint.x, currentPoint.y);
+            EraseWithBrush(currentPoint.x, currentPoint.y);
         }
 
         lastTexturePoint = currentPoint;
         hasLastPoint = true;
         textureDirty = true;
+        isScratched = true;
     }
 
     private void EraseAlongLine(Vector2Int from, Vector2Int to)
     {
         float distance = Vector2Int.Distance(from, to);
-        int steps = Mathf.Max(1, Mathf.CeilToInt(distance / (EraserRadiusPixels * 0.35f)));
+        float stepSize = Mathf.Max(1f, brushWidth * 0.175f);
+        int steps = Mathf.Max(1, Mathf.CeilToInt(distance / stepSize));
 
         for (int i = 0; i <= steps; i++)
         {
             float t = i / (float)steps;
             int x = Mathf.RoundToInt(Mathf.Lerp(from.x, to.x, t));
             int y = Mathf.RoundToInt(Mathf.Lerp(from.y, to.y, t));
-            EraseCircle(x, y);
+            EraseWithBrush(x, y);
         }
     }
 
-    private void EraseCircle(int centerX, int centerY)
+    private void EraseWithBrush(int centerX, int centerY)
     {
-        int radiusSquared = EraserRadiusPixels * EraserRadiusPixels;
-        int minX = Mathf.Max(0, centerX - EraserRadiusPixels);
-        int maxX = Mathf.Min(runtimeTexture.width - 1, centerX + EraserRadiusPixels);
-        int minY = Mathf.Max(0, centerY - EraserRadiusPixels);
-        int maxY = Mathf.Min(runtimeTexture.height - 1, centerY + EraserRadiusPixels);
+        int halfWidth = brushWidth / 2;
+        int halfHeight = brushHeight / 2;
+        int startX = centerX - halfWidth;
+        int startY = centerY - halfHeight;
 
-        for (int y = minY; y <= maxY; y++)
+        int minX = Mathf.Max(0, startX);
+        int maxX = Mathf.Min(runtimeTexture.width, startX + brushWidth);
+        int minY = Mathf.Max(0, startY);
+        int maxY = Mathf.Min(runtimeTexture.height, startY + brushHeight);
+
+        for (int y = minY; y < maxY; y++)
         {
-            int yDistance = y - centerY;
+            int brushY = y - startY;
             int rowOffset = y * runtimeTexture.width;
+            int brushRowOffset = brushY * brushWidth;
 
-            for (int x = minX; x <= maxX; x++)
+            for (int x = minX; x < maxX; x++)
             {
-                int xDistance = x - centerX;
-                if (xDistance * xDistance + yDistance * yDistance > radiusSquared)
-                {
-                    continue;
-                }
+                int brushX = x - startX;
+                byte brushAlpha = brushPixels[brushRowOffset + brushX].a;
 
-                int index = rowOffset + x;
-                pixels[index] = new Color32(0, 0, 0, 0);
+                if (brushAlpha > 0)
+                {
+                    int index = rowOffset + x;
+                    Color32 currentPixel = pixels[index];
+                    
+                    float alphaMultiplier = 1f - (brushAlpha / 255f);
+                    byte newAlpha = (byte)(currentPixel.a * alphaMultiplier);
+                    
+                    if (newAlpha < currentPixel.a)
+                    {
+                        currentPixel.a = newAlpha;
+                        pixels[index] = currentPixel;
+                    }
+                }
             }
         }
     }

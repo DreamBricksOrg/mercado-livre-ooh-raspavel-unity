@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: 07bbc81dda0fbbd45936c4121934fe6d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7075972999164617565
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_0
+  - first:
+      213: -5038083381066135230
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_1
+  - first:
+      213: -2713014854498534633
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_2
+  - first:
+      213: -3660117915809285300
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_3
+  - first:
+      213: -6474415373956491550
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_4
+  - first:
+      213: -2908745343910523745
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_5
+  - first:
+      213: -3991548125819636794
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_6
+  - first:
+      213: 3625458929192069501
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_7
+  - first:
+      213: -1795253945873209175
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_8
+  - first:
+      213: 6915038394297049701
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_9
+  - first:
+      213: -6853059273282066773
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_10
+  - first:
+      213: -1289403682404685521
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_11
+  - first:
+      213: 2971619797212795620
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_12
+  - first:
+      213: -7243547357279330315
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_13
+  - first:
+      213: 6290108179348084727
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_14
+  - first:
+      213: 7571170941265889420
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_15
+  - first:
+      213: -3381813229318678581
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_16
+  - first:
+      213: 5231076271534010181
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_17
+  - first:
+      213: -8921538143004604523
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_18
+  - first:
+      213: -3817446584873998747
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_19
+  - first:
+      213: 7647508288773250219
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_20
+  - first:
+      213: 3657063083078866353
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_21
+  - first:
+      213: -3657279965564539103
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_22
+  - first:
+      213: -5528782436611769883
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_23
+  - first:
+      213: -30364982889459381
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_24
+  - first:
+      213: -1968213131246970134
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_25
+  - first:
+      213: 1267903889850464998
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_26
+  - first:
+      213: -7297210097424464230
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_27
+  - first:
+      213: 1614456165009995282
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_28
+  - first:
+      213: -6009750564712537486
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_29
+  - first:
+      213: -3786447728013588190
+    second: RASPE A ETIQUETA E PROTEJA SEUS DADOS_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 164
+        width: 122
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac99802c081dcd90800000000000000
+      internalID: -7075972999164617565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 164
+        width: 129
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24901ca9bd1251ab0800000000000000
+      internalID: -5038083381066135230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_2
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 162
+        width: 110
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71bb14f2d5f695ad0800000000000000
+      internalID: -2713014854498534633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_3
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 164
+        width: 106
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bf420d526a43dc0800000000000000
+      internalID: -3660117915809285300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_4
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 164
+        width: 104
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e6def235814626a0800000000000000
+      internalID: -6474415373956491550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_5
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 164
+        width: 130
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c442a558f02a7d0800000000000000
+      internalID: -2908745343910523745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_6
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 164
+        width: 103
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3f4a0b02c2b98c0800000000000000
+      internalID: -3991548125819636794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_7
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 164
+        width: 110
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79e24600b7305230800000000000000
+      internalID: 3625458929192069501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_8
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 164
+        width: 21
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8eb924c0af517e0800000000000000
+      internalID: -1795253945873209175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_9
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 154
+        width: 135
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562634c38c627ff50800000000000000
+      internalID: 6915038394297049701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_10
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 162
+        width: 109
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba6635766ea05e0a0800000000000000
+      internalID: -6853059273282066773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_11
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 164
+        width: 103
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f292032be2e1b1ee0800000000000000
+      internalID: -1289403682404685521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_12
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 164
+        width: 110
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2136416705d3920800000000000000
+      internalID: 2971619797212795620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_13
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 164
+        width: 128
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff55a77e00c97b90800000000000000
+      internalID: -7243547357279330315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f752dc0014fa4750800000000000000
+      internalID: 6290108179348084727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_15
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 78
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88c9e77bd3321960800000000000000
+      internalID: 7571170941265889420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_16
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 90
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc75eb919c26111d0800000000000000
+      internalID: -3381813229318678581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_17
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 0
+        width: 98
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f62cd4724889840800000000000000
+      internalID: 5231076271534010181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_18
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 82
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 597cc18c354503480800000000000000
+      internalID: -8921538143004604523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_19
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 0
+        width: 77
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 566ae878e84b50bc0800000000000000
+      internalID: -3817446584873998747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_20
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 0
+        width: 58
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac5f293548612a60800000000000000
+      internalID: 7647508288773250219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_21
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 0
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b55c148f7f70c230800000000000000
+      internalID: 3657063083078866353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_22
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 0
+        width: 81
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f6f589f3bbe3dc0800000000000000
+      internalID: -3657279965564539103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_23
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 0
+        width: 77
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e93659aaa1d543b0800000000000000
+      internalID: -5528782436611769883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_24
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 0
+        width: 81
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41534d753f149ff0800000000000000
+      internalID: -30364982889459381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_25
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 0
+        width: 82
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aead3cdc5908fa4e0800000000000000
+      internalID: -1968213131246970134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_26
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 85
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea7fd3cedf789110800000000000000
+      internalID: 1267903889850464998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_27
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 0
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a960f93241a1bba90800000000000000
+      internalID: -7297210097424464230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_28
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 0
+        width: 85
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2163cdc0453b76610800000000000000
+      internalID: 1614456165009995282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_29
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 0
+        width: 97
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2722b91d3b3199ca0800000000000000
+      internalID: -6009750564712537486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RASPE A ETIQUETA E PROTEJA SEUS DADOS_30
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 82
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2294a235ad5d37bc0800000000000000
+      internalID: -3786447728013588190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_0: -7075972999164617565
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_1: -5038083381066135230
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_10: -6853059273282066773
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_11: -1289403682404685521
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_12: 2971619797212795620
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_13: -7243547357279330315
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_14: 6290108179348084727
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_15: 7571170941265889420
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_16: -3381813229318678581
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_17: 5231076271534010181
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_18: -8921538143004604523
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_19: -3817446584873998747
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_2: -2713014854498534633
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_20: 7647508288773250219
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_21: 3657063083078866353
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_22: -3657279965564539103
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_23: -5528782436611769883
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_24: -30364982889459381
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_25: -1968213131246970134
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_26: 1267903889850464998
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_27: -7297210097424464230
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_28: 1614456165009995282
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_29: -6009750564712537486
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_3: -3660117915809285300
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_30: -3786447728013588190
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_4: -6474415373956491550
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_5: -2908745343910523745
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_6: -3991548125819636794
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_7: 3625458929192069501
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_8: -1795253945873209175
+      RASPE A ETIQUETA E PROTEJA SEUS DADOS_9: 6915038394297049701
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
