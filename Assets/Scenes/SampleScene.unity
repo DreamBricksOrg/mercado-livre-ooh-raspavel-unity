@@ -563,15 +563,6 @@ MonoBehaviour:
   - name: CTA
     screenObject: {fileID: 569119704}
     canvasGroup: {fileID: 0}
-  - name: QRCODE
-    screenObject: {fileID: 0}
-    canvasGroup: {fileID: 0}
-  - name: AGRADECIMENTO
-    screenObject: {fileID: 0}
-    canvasGroup: {fileID: 0}
-  - name: OOW
-    screenObject: {fileID: 0}
-    canvasGroup: {fileID: 0}
   mainScreenName: CTA
   config: {fileID: 1443533424}
   runtimeDebugConsole: {fileID: 1137653063}

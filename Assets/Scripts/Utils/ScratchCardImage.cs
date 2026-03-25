@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
@@ -33,12 +35,14 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private float currentIdleTime;
     private bool isScratched;
     private ConfigManager config;
+    private List<string> logTags = new();
 
     private void Awake()
     {
         config = new();
         idleResetTime = int.Parse(config.GetValue("GameSettings", "idleResetTime", "5"));
         brushSize = int.Parse(config.GetValue("GameSettings", "brushSize", "120"));
+        logTags.Add("scratch");
 
         targetRawImage = GetComponent<RawImage>();
         rectTransform = targetRawImage.rectTransform;
@@ -113,6 +117,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                 currentIdleTime += Time.deltaTime;
                 if (currentIdleTime >= idleResetTime)
                 {
+                    SaveLog("PLAYED", "INFO", logTags);
                     ResetScratch();
                 }
             }
@@ -355,5 +360,45 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                 }
             }
         }
+    }
+
+    void SaveLog(string status, string level, List<string> tags, string additional = "")
+    {
+        StartCoroutine(SaveLogCoroutine(status));
+        StartCoroutine(SaveLogInNewLogCenterCoroutine(status, level, tags, additional));
+    }
+
+    IEnumerator SaveLogCoroutine(string status)
+    {
+        yield return LogUtil.GetDatalogFromJsonCoroutine((dataLog) =>
+        {
+            if (dataLog != null)
+            {
+                dataLog.status = status;
+                LogUtil.SaveLog(dataLog);
+            }
+            else
+            {
+                Debug.LogError("Erro ao carregar o DataLog do JSON.");
+            }
+        });
+    }
+    IEnumerator SaveLogInNewLogCenterCoroutine(string message, string level, List<string> tags, string additional = "")
+    {
+        yield return LogUtilSdk.GetDatalogFromJsonCoroutine((dataLog) =>
+       {
+           if (dataLog != null)
+           {
+               dataLog.message = message;
+               dataLog.level = level;
+               dataLog.tags = tags;
+               dataLog.data = new {};
+               LogUtilSdk.SaveLogToJson(dataLog);
+           }
+           else
+           {
+               Debug.LogError("Erro ao carregar o DataLog do JSON.");
+           }
+       });
     }
 }
