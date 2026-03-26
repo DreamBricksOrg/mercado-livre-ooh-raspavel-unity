@@ -117,7 +117,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                 currentIdleTime += Time.deltaTime;
                 if (currentIdleTime >= idleResetTime)
                 {
-                    SaveLog("PLAYED", "INFO", logTags);
+                    SaveLog("PROTEGEU", "INFO", logTags);
                     ResetScratch();
                 }
             }

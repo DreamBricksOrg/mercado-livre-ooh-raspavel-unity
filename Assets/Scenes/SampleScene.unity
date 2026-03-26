@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 278544600}
   - component: {fileID: 278544602}
+  - component: {fileID: 278544603}
   m_Layer: 0
   m_Name: LogDataUploader
   m_TagString: Untagged
@@ -165,7 +166,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: LogCenter::logCenterV2Uploader
   outputFolder: data_logs
   timeInMinutesAlive: 30
-  checkIntervalSeconds: 120
+  checkIntervalSeconds: 10
+--- !u!114 &278544603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278544599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf28c0b86c735549a507a84e148a7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogDataUploader
+  outputFolder: datalogs_old
+  checkIntervalSeconds: 10
+  ALIVE_LOG_INTERVAL: 300
 --- !u!1 &315662531
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c92ff896dab07a4eb3660c0ea032115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScratchCardImage
-  brushTexture: {fileID: 2800000, guid: 4e0e5d8c58926e04d9bea7a8f30883d2, type: 3}
+  brushTexture: {fileID: 2800000, guid: cee7d23d91b438842a2baa459b104a16, type: 3}
   brushSize: 120
   idleResetTime: 5
   resetOnIdle: 1
