@@ -3,10 +3,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using System.Globalization;
 
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
+    public const float LogThresholdPercent = 50f;
+
     [Header("Brush Settings")]
     [SerializeField, Tooltip("Alpha mask texture. Let it empty to use default circle.")] 
     private Texture2D brushTexture;
@@ -18,6 +21,10 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private float idleResetTime;
     [SerializeField, Tooltip("If true, resets after idle time.")]
     private bool resetOnIdle = true;
+
+    [Header("Scratch Progress")]
+    [Range(0f, 100f)]
+    public float scratchedPercent;
 
     private RawImage targetRawImage;
     private RectTransform rectTransform;
@@ -36,12 +43,15 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private bool isScratched;
     private ConfigManager config;
     private List<string> logTags = new();
+    private long currentAlphaSum;
+    private long maxAlphaSum;
 
     private void Awake()
     {
         config = new();
         idleResetTime = int.Parse(config.GetValue("GameSettings", "idleResetTime", "5"));
         brushSize = int.Parse(config.GetValue("GameSettings", "brushSize", "120"));
+
         logTags.Add("scratch");
 
         targetRawImage = GetComponent<RawImage>();
@@ -117,7 +127,12 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                 currentIdleTime += Time.deltaTime;
                 if (currentIdleTime >= idleResetTime)
                 {
-                    SaveLog("PROTEGEU", "INFO", logTags);
+                    float scratchedPercentAtReset = scratchedPercent;
+                    if (scratchedPercentAtReset > LogThresholdPercent)
+                    {
+                        SaveLog("PROTEGEU", "INFO", logTags, scratchedPercentAtReset);
+                    }
+
                     ResetScratch();
                 }
             }
@@ -240,6 +255,13 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         runtimeTexture.wrapMode = TextureWrapMode.Clamp;
         runtimeTexture.anisoLevel = 0;
         pixels = runtimeTexture.GetPixels32();
+        maxAlphaSum = (long)pixels.Length * 255L;
+        currentAlphaSum = 0L;
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            currentAlphaSum += pixels[i].a;
+        }
+        UpdateScratchedPercent();
         targetRawImage.texture = runtimeTexture;
         textureDirty = true;
         hasLastPoint = false;
@@ -354,27 +376,46 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                     
                     if (newAlpha < currentPixel.a)
                     {
+                        currentAlphaSum -= currentPixel.a - newAlpha;
                         currentPixel.a = newAlpha;
                         pixels[index] = currentPixel;
                     }
                 }
             }
         }
+
+        UpdateScratchedPercent();
     }
 
-    void SaveLog(string status, string level, List<string> tags, string additional = "")
+    private void UpdateScratchedPercent()
     {
-        StartCoroutine(SaveLogCoroutine(status));
-        StartCoroutine(SaveLogInNewLogCenterCoroutine(status, level, tags, additional));
+        if (maxAlphaSum <= 0)
+        {
+            scratchedPercent = 0f;
+            return;
+        }
+
+        float visiblePercent = (float)currentAlphaSum / maxAlphaSum;
+        scratchedPercent = Mathf.Clamp01(1f - visiblePercent) * 100f;
     }
 
-    IEnumerator SaveLogCoroutine(string status)
+    void SaveLog(string status, string level, List<string> tags, float scratchedPercentValue = -1f)
+    {
+        StartCoroutine(SaveLogCoroutine(status, scratchedPercentValue));
+        StartCoroutine(SaveLogInNewLogCenterCoroutine(status, level, tags, scratchedPercentValue));
+    }
+
+    IEnumerator SaveLogCoroutine(string status, float scratchedPercentValue)
     {
         yield return LogUtil.GetDatalogFromJsonCoroutine((dataLog) =>
         {
             if (dataLog != null)
             {
                 dataLog.status = status;
+                if (scratchedPercentValue >= 0f)
+                {
+                    dataLog.additional = scratchedPercentValue.ToString("F2", CultureInfo.InvariantCulture);
+                }
                 LogUtil.SaveLog(dataLog);
             }
             else
@@ -383,7 +424,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
             }
         });
     }
-    IEnumerator SaveLogInNewLogCenterCoroutine(string message, string level, List<string> tags, string additional = "")
+    IEnumerator SaveLogInNewLogCenterCoroutine(string message, string level, List<string> tags, float scratchedPercentValue)
     {
         yield return LogUtilSdk.GetDatalogFromJsonCoroutine((dataLog) =>
        {
@@ -392,7 +433,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                dataLog.message = message;
                dataLog.level = level;
                dataLog.tags = tags;
-               dataLog.data = new {};
+               dataLog.data = scratchedPercentValue >= 0f
+                   ? new { scratchedPercent = scratchedPercentValue }
+                   : new { };
                LogUtilSdk.SaveLogToJson(dataLog);
            }
            else

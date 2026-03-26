@@ -304,10 +304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c92ff896dab07a4eb3660c0ea032115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScratchCardImage
+  LogThresholdPercent: 50
   brushTexture: {fileID: 2800000, guid: cee7d23d91b438842a2baa459b104a16, type: 3}
   brushSize: 120
   idleResetTime: 5
   resetOnIdle: 1
+  scratchedPercent: 0
 --- !u!114 &469238613
 MonoBehaviour:
   m_ObjectHideFlags: 0
