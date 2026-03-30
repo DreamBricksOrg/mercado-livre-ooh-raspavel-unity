@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Globalization;
 
 public class Tittle : MonoBehaviour
 {
@@ -13,8 +14,16 @@ public class Tittle : MonoBehaviour
     private float pulseTime;
     private bool isPulsing = true;
 
+    private ConfigManager config;
+
     private void Awake()
     {
+        config = new();
+        pulseSpeed = ReadFloatSetting("pulseSpeed", 0.9f);
+        minAlpha = ReadFloatSetting("minAlpha", 0.2f);
+        maxAlpha = ReadFloatSetting("maxAlpha", 1f);
+        stopPulseAtScratchedPercent = ReadFloatSetting("stopPulseAtScratchedPercent", 10f);
+
         if (targetGraphic == null)
         {
             targetGraphic = GetComponent<Graphic>();
@@ -80,5 +89,21 @@ public class Tittle : MonoBehaviour
         Color color = targetGraphic.color;
         color.a = Mathf.Clamp01(alpha);
         targetGraphic.color = color;
+    }
+
+    private float ReadFloatSetting(string key, float fallbackValue)
+    {
+        string rawValue = config.GetValue("GameSettings", key, fallbackValue.ToString(CultureInfo.InvariantCulture));
+        if (float.TryParse(rawValue, NumberStyles.Float, CultureInfo.InvariantCulture, out float parsedInvariant))
+        {
+            return parsedInvariant;
+        }
+
+        if (float.TryParse(rawValue, NumberStyles.Float, CultureInfo.CurrentCulture, out float parsedCurrent))
+        {
+            return parsedCurrent;
+        }
+
+        return fallbackValue;
     }
 }

@@ -306,6 +306,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScratchCardImage
   brushTexture: {fileID: 2800000, guid: f4ab5436317af6747bd668aa180dd756, type: 3}
   brushSize: 120
+  predefinedBrushTextures:
+  - {fileID: 2800000, guid: cee7d23d91b438842a2baa459b104a16, type: 3}
+  - {fileID: 2800000, guid: adc530ce64b3081459b47ca5179cfdda, type: 3}
+  - {fileID: 2800000, guid: 267f80e69ab456a459034c4cac291f6b, type: 3}
+  - {fileID: 2800000, guid: f4ab5436317af6747bd668aa180dd756, type: 3}
   idleResetTime: 5
   resetOnIdle: 1
   scratchedPercent: 0

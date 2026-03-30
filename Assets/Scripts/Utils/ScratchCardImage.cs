@@ -17,6 +17,10 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField, Tooltip("Size of the brush tip in pixels.")] 
     private int brushSize;
 
+    [Header("Brush Presets")]
+    [SerializeField]
+    private List<Texture2D> predefinedBrushTextures = new();
+
     [Header("Reset Settings")]
     [SerializeField, Tooltip("Time in seconds to reset after no touch.")]
     private float idleResetTime;
@@ -46,14 +50,16 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private List<string> logTags = new();
     private long currentAlphaSum;
     private long maxAlphaSum;
+    private int brushTextureIndex;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
     private void Awake()
     {
         config = new();
-        idleResetTime = int.Parse(config.GetValue("GameSettings", "idleResetTime", "5"));
-        brushSize = int.Parse(config.GetValue("GameSettings", "brushSize", "120"));
+        idleResetTime = ReadFloatSetting("idleResetTime", 5f);
+        brushSize = ReadIntSetting("brushSize", 120);
+        brushTextureIndex = ReadIntSetting("brushTextureIndex", ReadIntSetting("scratchImageIndex", 0));
 
         logTags.Add("scratch");
 
@@ -61,6 +67,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         rectTransform = targetRawImage.rectTransform;
         parentCanvas = GetComponentInParent<Canvas>();
         originalTexture = targetRawImage.texture;
+        brushTexture = ResolveBrushTextureByIndex();
         targetRawImage.material = null;
         targetRawImage.color = Color.white;
         targetRawImage.uvRect = new Rect(0f, 0f, 1f, 1f);
@@ -274,6 +281,23 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         currentIdleTime = 0f;
     }
 
+    private Texture2D ResolveBrushTextureByIndex()
+    {
+        if (predefinedBrushTextures == null || predefinedBrushTextures.Count == 0)
+        {
+            return brushTexture;
+        }
+
+        int clampedIndex = Mathf.Clamp(brushTextureIndex, 0, predefinedBrushTextures.Count - 1);
+        Texture2D selectedTexture = predefinedBrushTextures[clampedIndex];
+        if (selectedTexture == null)
+        {
+            return brushTexture;
+        }
+
+        return selectedTexture;
+    }
+
     private Texture2D ExtractTexture(Texture sourceTexture)
     {
         int width = sourceTexture.width;
@@ -406,6 +430,38 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         float visiblePercent = (float)currentAlphaSum / maxAlphaSum;
         scratchedPercent = Mathf.Clamp01(1f - visiblePercent) * 100f;
+    }
+
+    private int ReadIntSetting(string key, int fallbackValue)
+    {
+        string rawValue = config.GetValue("GameSettings", key, fallbackValue.ToString(CultureInfo.InvariantCulture));
+        if (int.TryParse(rawValue, NumberStyles.Integer, CultureInfo.InvariantCulture, out int parsedInvariant))
+        {
+            return parsedInvariant;
+        }
+
+        if (int.TryParse(rawValue, NumberStyles.Integer, CultureInfo.CurrentCulture, out int parsedCurrent))
+        {
+            return parsedCurrent;
+        }
+
+        return fallbackValue;
+    }
+
+    private float ReadFloatSetting(string key, float fallbackValue)
+    {
+        string rawValue = config.GetValue("GameSettings", key, fallbackValue.ToString(CultureInfo.InvariantCulture));
+        if (float.TryParse(rawValue, NumberStyles.Float, CultureInfo.InvariantCulture, out float parsedInvariant))
+        {
+            return parsedInvariant;
+        }
+
+        if (float.TryParse(rawValue, NumberStyles.Float, CultureInfo.CurrentCulture, out float parsedCurrent))
+        {
+            return parsedCurrent;
+        }
+
+        return fallbackValue;
     }
 
     void SaveLog(string status, string level, List<string> tags, float scratchedPercentValue = -1f)
