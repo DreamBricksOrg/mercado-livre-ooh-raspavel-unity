@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System.Globalization;
+using System;
 
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
@@ -45,6 +46,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private List<string> logTags = new();
     private long currentAlphaSum;
     private long maxAlphaSum;
+    public event Action ScratchStarted;
+    public event Action ScratchReset;
 
     private void Awake()
     {
@@ -165,6 +168,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     public void ResetScratch()
     {
         InitializeRuntimeTexture();
+        ScratchReset?.Invoke();
     }
 
     private bool HandleTouchInputFallback()
@@ -320,6 +324,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         else
         {
             EraseWithBrush(currentPoint.x, currentPoint.y);
+        }
+
+        if (!isScratched)
+        {
+            ScratchStarted?.Invoke();
         }
 
         lastTexturePoint = currentPoint;
