@@ -311,6 +311,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: adc530ce64b3081459b47ca5179cfdda, type: 3}
   - {fileID: 2800000, guid: 267f80e69ab456a459034c4cac291f6b, type: 3}
   - {fileID: 2800000, guid: f4ab5436317af6747bd668aa180dd756, type: 3}
+  scratchAreaRectTransform: {fileID: 0}
+  scratchAreaDefaultSize: {x: 1080, y: 520}
   idleResetTime: 5
   resetOnIdle: 1
   scratchedPercent: 0
@@ -1123,8 +1125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 742.18}
-  m_SizeDelta: {x: 1080, y: 435.64}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331377849
 MonoBehaviour:

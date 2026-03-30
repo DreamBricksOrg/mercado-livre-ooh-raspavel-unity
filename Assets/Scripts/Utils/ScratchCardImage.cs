@@ -21,6 +21,14 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField]
     private List<Texture2D> predefinedBrushTextures = new();
 
+    [Header("Scratch Area")]
+    [SerializeField]
+    private RectTransform scratchAreaRectTransform;
+    [SerializeField]
+    private Vector2 scratchAreaDefaultCenter = Vector2.zero;
+    [SerializeField]
+    private Vector2 scratchAreaDefaultSize = new Vector2(1080f, 520f);
+
     [Header("Reset Settings")]
     [SerializeField, Tooltip("Time in seconds to reset after no touch.")]
     private float idleResetTime;
@@ -51,6 +59,10 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private long currentAlphaSum;
     private long maxAlphaSum;
     private int brushTextureIndex;
+    private int scratchAreaMinX;
+    private int scratchAreaMaxX;
+    private int scratchAreaMinY;
+    private int scratchAreaMaxY;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -60,6 +72,14 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         idleResetTime = ReadFloatSetting("idleResetTime", 5f);
         brushSize = ReadIntSetting("brushSize", 120);
         brushTextureIndex = ReadIntSetting("brushTextureIndex", ReadIntSetting("scratchImageIndex", 0));
+        scratchAreaDefaultCenter = new Vector2(
+            ReadFloatSetting("scratchAreaX", scratchAreaDefaultCenter.x),
+            ReadFloatSetting("scratchAreaY", scratchAreaDefaultCenter.y)
+        );
+        scratchAreaDefaultSize = new Vector2(
+            Mathf.Max(1f, ReadFloatSetting("scratchAreaWidth", scratchAreaDefaultSize.x)),
+            Mathf.Max(1f, ReadFloatSetting("scratchAreaHeight", scratchAreaDefaultSize.y))
+        );
 
         logTags.Add("scratch");
 
@@ -68,6 +88,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         parentCanvas = GetComponentInParent<Canvas>();
         originalTexture = targetRawImage.texture;
         brushTexture = ResolveBrushTextureByIndex();
+        ApplyConfiguredScratchAreaRect();
         targetRawImage.material = null;
         targetRawImage.color = Color.white;
         targetRawImage.uvRect = new Rect(0f, 0f, 1f, 1f);
@@ -266,11 +287,16 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         runtimeTexture.wrapMode = TextureWrapMode.Clamp;
         runtimeTexture.anisoLevel = 0;
         pixels = runtimeTexture.GetPixels32();
-        maxAlphaSum = (long)pixels.Length * 255L;
+        UpdateScratchAreaBounds();
+        maxAlphaSum = (long)(scratchAreaMaxX - scratchAreaMinX + 1) * (scratchAreaMaxY - scratchAreaMinY + 1) * 255L;
         currentAlphaSum = 0L;
-        for (int i = 0; i < pixels.Length; i++)
+        for (int y = scratchAreaMinY; y <= scratchAreaMaxY; y++)
         {
-            currentAlphaSum += pixels[i].a;
+            int rowOffset = y * runtimeTexture.width;
+            for (int x = scratchAreaMinX; x <= scratchAreaMaxX; x++)
+            {
+                currentAlphaSum += pixels[rowOffset + x].a;
+            }
         }
         UpdateScratchedPercent();
         targetRawImage.texture = runtimeTexture;
@@ -339,6 +365,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         int textureX = Mathf.Clamp(Mathf.RoundToInt(normalizedX * runtimeTexture.width), 0, runtimeTexture.width - 1);
         int textureY = Mathf.Clamp(Mathf.RoundToInt(normalizedY * runtimeTexture.height), 0, runtimeTexture.height - 1);
+        if (textureX < scratchAreaMinX || textureX > scratchAreaMaxX || textureY < scratchAreaMinY || textureY > scratchAreaMaxY)
+        {
+            return;
+        }
+
         Vector2Int currentPoint = new Vector2Int(textureX, textureY);
 
         if (hasLastPoint)
@@ -383,10 +414,10 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         int startX = centerX - halfWidth;
         int startY = centerY - halfHeight;
 
-        int minX = Mathf.Max(0, startX);
-        int maxX = Mathf.Min(runtimeTexture.width, startX + brushWidth);
-        int minY = Mathf.Max(0, startY);
-        int maxY = Mathf.Min(runtimeTexture.height, startY + brushHeight);
+        int minX = Mathf.Max(scratchAreaMinX, startX);
+        int maxX = Mathf.Min(scratchAreaMaxX + 1, startX + brushWidth);
+        int minY = Mathf.Max(scratchAreaMinY, startY);
+        int maxY = Mathf.Min(scratchAreaMaxY + 1, startY + brushHeight);
 
         for (int y = minY; y < maxY; y++)
         {
@@ -430,6 +461,101 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         float visiblePercent = (float)currentAlphaSum / maxAlphaSum;
         scratchedPercent = Mathf.Clamp01(1f - visiblePercent) * 100f;
+    }
+
+    private void UpdateScratchAreaBounds()
+    {
+        if (runtimeTexture == null)
+        {
+            scratchAreaMinX = 0;
+            scratchAreaMaxX = 0;
+            scratchAreaMinY = 0;
+            scratchAreaMaxY = 0;
+            return;
+        }
+
+        Rect areaRect;
+        if (scratchAreaRectTransform != null)
+        {
+            Vector3[] worldCorners = new Vector3[4];
+            scratchAreaRectTransform.GetWorldCorners(worldCorners);
+            Camera inputCamera = GetInputCamera();
+            bool hasPoint = false;
+            float minXLocal = float.MaxValue;
+            float maxXLocal = float.MinValue;
+            float minYLocal = float.MaxValue;
+            float maxYLocal = float.MinValue;
+
+            for (int i = 0; i < worldCorners.Length; i++)
+            {
+                Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(inputCamera, worldCorners[i]);
+                if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, inputCamera, out Vector2 localPoint))
+                {
+                    continue;
+                }
+
+                hasPoint = true;
+                minXLocal = Mathf.Min(minXLocal, localPoint.x);
+                maxXLocal = Mathf.Max(maxXLocal, localPoint.x);
+                minYLocal = Mathf.Min(minYLocal, localPoint.y);
+                maxYLocal = Mathf.Max(maxYLocal, localPoint.y);
+            }
+
+            if (hasPoint)
+            {
+                areaRect = Rect.MinMaxRect(minXLocal, minYLocal, maxXLocal, maxYLocal);
+            }
+            else
+            {
+                areaRect = new Rect(
+                    scratchAreaDefaultCenter.x - scratchAreaDefaultSize.x * 0.5f,
+                    scratchAreaDefaultCenter.y - scratchAreaDefaultSize.y * 0.5f,
+                    scratchAreaDefaultSize.x,
+                    scratchAreaDefaultSize.y
+                );
+            }
+        }
+        else
+        {
+            areaRect = new Rect(
+                scratchAreaDefaultCenter.x - scratchAreaDefaultSize.x * 0.5f,
+                scratchAreaDefaultCenter.y - scratchAreaDefaultSize.y * 0.5f,
+                scratchAreaDefaultSize.x,
+                scratchAreaDefaultSize.y
+            );
+        }
+
+        Rect imageRect = rectTransform.rect;
+        float minNormX = Mathf.Clamp01((areaRect.xMin - imageRect.x) / imageRect.width);
+        float maxNormX = Mathf.Clamp01((areaRect.xMax - imageRect.x) / imageRect.width);
+        float minNormY = Mathf.Clamp01((areaRect.yMin - imageRect.y) / imageRect.height);
+        float maxNormY = Mathf.Clamp01((areaRect.yMax - imageRect.y) / imageRect.height);
+
+        scratchAreaMinX = Mathf.Clamp(Mathf.FloorToInt(minNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
+        scratchAreaMaxX = Mathf.Clamp(Mathf.CeilToInt(maxNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
+        scratchAreaMinY = Mathf.Clamp(Mathf.FloorToInt(minNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
+        scratchAreaMaxY = Mathf.Clamp(Mathf.CeilToInt(maxNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
+
+        if (scratchAreaMinX > scratchAreaMaxX)
+        {
+            scratchAreaMinX = scratchAreaMaxX;
+        }
+
+        if (scratchAreaMinY > scratchAreaMaxY)
+        {
+            scratchAreaMinY = scratchAreaMaxY;
+        }
+    }
+
+    private void ApplyConfiguredScratchAreaRect()
+    {
+        if (scratchAreaRectTransform == null)
+        {
+            return;
+        }
+
+        scratchAreaRectTransform.anchoredPosition = scratchAreaDefaultCenter;
+        scratchAreaRectTransform.sizeDelta = scratchAreaDefaultSize;
     }
 
     private int ReadIntSetting(string key, int fallbackValue)
