@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 29f558327a19e30489f21567848b3a4c
+guid: 589a6954066a8ea41ad551a427f805d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3125557259069109344
-    second: mercado_livre_ficha_0
+      213: 8524949744905203563
+    second: papel_grupo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mercado_livre_ficha_0
+      name: papel_grupo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1569
-        height: 1848
+        width: 1542
+        height: 1810
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0abca089b3acf94d0800000000000000
-      internalID: -3125557259069109344
+      spriteID: b6fa12930a4be4670800000000000000
+      internalID: 8524949744905203563
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mercado_livre_ficha_0: -3125557259069109344
+      papel_grupo_0: 8524949744905203563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

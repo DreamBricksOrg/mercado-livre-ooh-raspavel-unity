@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: ba462e4aaa32ad548b07accf16594be9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6423402270713764114
+    second: raspe_0
+  - first:
+      213: -8017795766714020713
+    second: raspe_1
+  - first:
+      213: -3733733694696714342
+    second: raspe_2
+  - first:
+      213: -7148312642905746712
+    second: raspe_3
+  - first:
+      213: -1369444741749892042
+    second: raspe_4
+  - first:
+      213: -8567842539982283638
+    second: raspe_5
+  - first:
+      213: -559272750159576656
+    second: raspe_6
+  - first:
+      213: -4009467455875818487
+    second: raspe_7
+  - first:
+      213: -4917450831620999528
+    second: raspe_8
+  - first:
+      213: -2166054525387638346
+    second: raspe_9
+  - first:
+      213: 4415905336243583684
+    second: raspe_10
+  - first:
+      213: 8662524191747191553
+    second: raspe_11
+  - first:
+      213: -3097767790922241820
+    second: raspe_12
+  - first:
+      213: -2988851050444058605
+    second: raspe_13
+  - first:
+      213: 7629278884339994899
+    second: raspe_14
+  - first:
+      213: -6834100854295116036
+    second: raspe_15
+  - first:
+      213: 4141547081527248176
+    second: raspe_16
+  - first:
+      213: -2702382397978305310
+    second: raspe_17
+  - first:
+      213: 6995298009613183380
+    second: raspe_18
+  - first:
+      213: -8775596701464546936
+    second: raspe_19
+  - first:
+      213: 8555768352268721921
+    second: raspe_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: raspe_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 183
+        width: 275
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219d4532552842950800000000000000
+      internalID: 6423402270713764114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 181
+        width: 120
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c4163fa311bb090800000000000000
+      internalID: -8017795766714020713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_2
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 183
+        width: 113
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f02b1acfc1f2cc0800000000000000
+      internalID: -3733733694696714342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_3
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 183
+        width: 112
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e25b2056871ccc90800000000000000
+      internalID: -7148312642905746712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_4
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 181
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c98745341cefce0800000000000000
+      internalID: -1369444741749892042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_5
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 181
+        width: 119
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c10e0ba98e81980800000000000000
+      internalID: -8567842539982283638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_6
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 183
+        width: 123
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1ce2a95601d38f0800000000000000
+      internalID: -559272750159576656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_7
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 183
+        width: 147
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c580a87928b58c0800000000000000
+      internalID: -4009467455875818487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_8
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 183
+        width: 123
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896f7ccb584b1cbb0800000000000000
+      internalID: -4917450831620999528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_9
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 181
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9742aa2e0a0f1e0800000000000000
+      internalID: -2166054525387638346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_10
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 181
+        width: 118
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cafc80c182784d30800000000000000
+      internalID: 4415905336243583684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_11
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 13
+        width: 117
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 103b15b3bd7773870800000000000000
+      internalID: 8662524191747191553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_12
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 13
+        width: 147
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8ee695b948205d0800000000000000
+      internalID: -3097767790922241820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_13
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 13
+        width: 112
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3109ab32ec77586d0800000000000000
+      internalID: -2988851050444058605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_14
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 13
+        width: 117
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311597149b4a0e960800000000000000
+      internalID: 7629278884339994899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_15
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 13
+        width: 32
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6cb8c4b756821a0800000000000000
+      internalID: -6834100854295116036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_16
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 0
+        width: 147
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035ccf6b02bb97930800000000000000
+      internalID: 4141547081527248176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_17
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 10
+        width: 117
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec1c31e6853f7ad0800000000000000
+      internalID: -2702382397978305310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_18
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 13
+        width: 112
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499adf02a7a441160800000000000000
+      internalID: 6995298009613183380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_19
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 13
+        width: 117
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881bd1d8b41d63680800000000000000
+      internalID: -8775596701464546936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raspe_20
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 13
+        width: 147
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f91896cf13cb670800000000000000
+      internalID: 8555768352268721921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      raspe_0: 6423402270713764114
+      raspe_1: -8017795766714020713
+      raspe_10: 4415905336243583684
+      raspe_11: 8662524191747191553
+      raspe_12: -3097767790922241820
+      raspe_13: -2988851050444058605
+      raspe_14: 7629278884339994899
+      raspe_15: -6834100854295116036
+      raspe_16: 4141547081527248176
+      raspe_17: -2702382397978305310
+      raspe_18: 6995298009613183380
+      raspe_19: -8775596701464546936
+      raspe_2: -3733733694696714342
+      raspe_20: 8555768352268721921
+      raspe_3: -7148312642905746712
+      raspe_4: -1369444741749892042
+      raspe_5: -8567842539982283638
+      raspe_6: -559272750159576656
+      raspe_7: -4009467455875818487
+      raspe_8: -4917450831620999528
+      raspe_9: -2166054525387638346
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

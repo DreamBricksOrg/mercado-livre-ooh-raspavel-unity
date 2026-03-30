@@ -282,15 +282,15 @@ RectTransform:
   m_GameObject: {fileID: 469238610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 569119705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1252.3, y: 1920}
+  m_SizeDelta: {x: 1557, y: 1825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &469238612
 MonoBehaviour:
@@ -311,8 +311,17 @@ MonoBehaviour:
   - {fileID: 2800000, guid: adc530ce64b3081459b47ca5179cfdda, type: 3}
   - {fileID: 2800000, guid: 267f80e69ab456a459034c4cac291f6b, type: 3}
   - {fileID: 2800000, guid: f4ab5436317af6747bd668aa180dd756, type: 3}
-  scratchAreaRectTransform: {fileID: 0}
-  scratchAreaDefaultSize: {x: 1080, y: 520}
+  scratchAreaRectTransform: {fileID: 1331377848}
+  outsideAreaTintColor:
+    serializedVersion: 2
+    rgba: 4287993237
+  scratchAreaTintColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  pulseOutsideAreaTint: 1
+  outsideAreaTintPulseSpeed: 0.9
+  outsideAreaTintPauseAtHighlight: 2
+  outsideAreaTintPauseAtBase: 0.2
   idleResetTime: 5
   resetOnIdle: 1
   scratchedPercent: 0
@@ -336,7 +345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 98d0322e41a645e4f8526d60f59e52e8, type: 3}
+  m_Texture: {fileID: 2800000, guid: 92a9d61c2b151c449b7d77ff86d19f18, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -675,7 +684,6 @@ GameObject:
   - component: {fileID: 1028809242}
   - component: {fileID: 1028809244}
   - component: {fileID: 1028809243}
-  - component: {fileID: 1028809245}
   m_Layer: 5
   m_Name: Titulo
   m_TagString: Untagged
@@ -692,15 +700,15 @@ RectTransform:
   m_GameObject: {fileID: 1028809241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 569119705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 793.5}
-  m_SizeDelta: {x: 1364, y: 333}
+  m_AnchoredPosition: {x: 0, y: 763}
+  m_SizeDelta: {x: 1788, y: 331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028809243
 MonoBehaviour:
@@ -722,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3748425351803905432, guid: fcd1bf6d110ccdc449f470facf2237aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba462e4aaa32ad548b07accf16594be9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -740,24 +748,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028809241}
   m_CullTransparentMesh: 1
---- !u!114 &1028809245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028809241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f0e3030ade8164e9a04943b29b1117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  scratchCardImage: {fileID: 469238612}
-  pulseSpeed: 0.9
-  minAlpha: 0.2
-  maxAlpha: 1
-  stopPulseAtScratchedPercent: 10
-  targetGraphic: {fileID: 1028809243}
 --- !u!1 &1135407136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,14 +1091,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1331377848}
   - component: {fileID: 1331377850}
-  - component: {fileID: 1331377849}
+  - component: {fileID: 1331377851}
   m_Layer: 5
   m_Name: raspe a etiqueta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1331377848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1125,43 +1115,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 520}
+  m_AnchoredPosition: {x: -0.000061035, y: -7.89}
+  m_SizeDelta: {x: 1080, y: 404.34}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1331377849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331377847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.84587485, b: 0.16509432, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 44532713b0d3fbd40b41227078824b48, type: 3}
-    m_FontSize: 80
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 150
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: RASPE A ETIQUETA E PROTEJA OS SEUS DADOS
 --- !u!222 &1331377850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1170,6 +1126,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331377847}
   m_CullTransparentMesh: 1
+--- !u!114 &1331377851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331377847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1001 &1443533423
 PrefabInstance:
   m_ObjectHideFlags: 0
