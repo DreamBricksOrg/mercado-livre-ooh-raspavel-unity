@@ -25,6 +25,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField]
     private RectTransform scratchAreaRectTransform;
     [SerializeField]
+    private RectTransform scratchAreaTintRectTransform;
+    [SerializeField]
     private Color32 outsideAreaTintColor = new Color32(170, 170, 170, 255);
     [SerializeField]
     private Color32 scratchAreaTintColor = new Color32(255, 255, 255, 255);
@@ -36,6 +38,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private float outsideAreaTintPauseAtHighlight = 2f;
     [SerializeField]
     private float outsideAreaTintPauseAtBase = 0.2f;
+    [SerializeField]
+    private float outsideAreaTintMatchThresholdPercent = 5f;
 
     [Header("Reset Settings")]
     [SerializeField, Tooltip("Time in seconds to reset after no touch.")]
@@ -71,10 +75,15 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private int scratchAreaMaxX;
     private int scratchAreaMinY;
     private int scratchAreaMaxY;
+    private int scratchAreaTintMinX;
+    private int scratchAreaTintMaxX;
+    private int scratchAreaTintMinY;
+    private int scratchAreaTintMaxY;
     private Color32[] untintedPixels;
     private float outsideAreaTintPulseLerp;
     private int outsideAreaTintPulseDirection = 1;
     private float outsideAreaTintPauseTimer;
+    private bool outsideAreaTintMatchedToScratchArea;
     private Color32 currentOutsideAreaTint;
     public event Action ScratchStarted;
     public event Action ScratchReset;
@@ -84,7 +93,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         config = new();
         idleResetTime = ReadFloatSetting("idleResetTime", 5f);
         brushSize = ReadIntSetting("brushSize", 120);
-        brushTextureIndex = ReadIntSetting("brushTextureIndex", ReadIntSetting("scratchImageIndex", 0));
+        brushTextureIndex = ReadIntSetting("brushTextureIndex", 3);
         outsideAreaTintPulseSpeed = ReadFloatSetting("pulseSpeed", outsideAreaTintPulseSpeed);
         outsideAreaTintPauseAtHighlight = ReadFloatSetting("outsideAreaTintPauseAtHighlight", outsideAreaTintPauseAtHighlight);
         outsideAreaTintPauseAtBase = ReadFloatSetting("outsideAreaTintPauseAtBase", outsideAreaTintPauseAtBase);
@@ -173,7 +182,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                         SaveLog("PROTEGEU", "INFO", logTags, scratchedPercentAtReset);
                     }
 
-                    ResetScratch();
+                    // ResetScratch();
+                    UIManager.Instance.OpenScreen("THANKS");
                 }
             }
         }
@@ -298,10 +308,12 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         pixels = runtimeTexture.GetPixels32();
         untintedPixels = new Color32[pixels.Length];
         Array.Copy(pixels, untintedPixels, pixels.Length);
-        UpdateScratchAreaBounds();
+        UpdateScratchBounds();
+        UpdateTintBounds();
         outsideAreaTintPulseLerp = 0f;
         outsideAreaTintPulseDirection = 1;
         outsideAreaTintPauseTimer = 0f;
+        outsideAreaTintMatchedToScratchArea = false;
         currentOutsideAreaTint = outsideAreaTintColor;
         ApplyScratchAreaTint(currentOutsideAreaTint);
         maxAlphaSum = (long)(scratchAreaMaxX - scratchAreaMinX + 1) * (scratchAreaMaxY - scratchAreaMinY + 1) * 255L;
@@ -482,22 +494,53 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         scratchedPercent = Mathf.Clamp01(1f - visiblePercent) * 100f;
     }
 
-    private void UpdateScratchAreaBounds()
+    private void UpdateScratchBounds()
+    {
+        ResolveRectTransformBounds(
+            scratchAreaRectTransform,
+            out scratchAreaMinX,
+            out scratchAreaMaxX,
+            out scratchAreaMinY,
+            out scratchAreaMaxY
+        );
+    }
+
+    private void UpdateTintBounds()
+    {
+        RectTransform tintReferenceRectTransform = scratchAreaTintRectTransform != null
+            ? scratchAreaTintRectTransform
+            : scratchAreaRectTransform;
+
+        ResolveRectTransformBounds(
+            tintReferenceRectTransform,
+            out scratchAreaTintMinX,
+            out scratchAreaTintMaxX,
+            out scratchAreaTintMinY,
+            out scratchAreaTintMaxY
+        );
+    }
+
+    private void ResolveRectTransformBounds(
+        RectTransform targetAreaRectTransform,
+        out int minX,
+        out int maxX,
+        out int minY,
+        out int maxY)
     {
         if (runtimeTexture == null)
         {
-            scratchAreaMinX = 0;
-            scratchAreaMaxX = 0;
-            scratchAreaMinY = 0;
-            scratchAreaMaxY = 0;
+            minX = 0;
+            maxX = 0;
+            minY = 0;
+            maxY = 0;
             return;
         }
 
-        Rect areaRect;
-        if (scratchAreaRectTransform != null)
+        Rect areaRect = rectTransform.rect;
+        if (targetAreaRectTransform != null)
         {
             Vector3[] worldCorners = new Vector3[4];
-            scratchAreaRectTransform.GetWorldCorners(worldCorners);
+            targetAreaRectTransform.GetWorldCorners(worldCorners);
             Camera inputCamera = GetInputCamera();
             bool hasPoint = false;
             float minXLocal = float.MaxValue;
@@ -524,14 +567,6 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
             {
                 areaRect = Rect.MinMaxRect(minXLocal, minYLocal, maxXLocal, maxYLocal);
             }
-            else
-            {
-                areaRect = rectTransform.rect;
-            }
-        }
-        else
-        {
-            areaRect = rectTransform.rect;
         }
 
         Rect imageRect = rectTransform.rect;
@@ -540,19 +575,19 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         float minNormY = Mathf.Clamp01((areaRect.yMin - imageRect.y) / imageRect.height);
         float maxNormY = Mathf.Clamp01((areaRect.yMax - imageRect.y) / imageRect.height);
 
-        scratchAreaMinX = Mathf.Clamp(Mathf.FloorToInt(minNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
-        scratchAreaMaxX = Mathf.Clamp(Mathf.CeilToInt(maxNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
-        scratchAreaMinY = Mathf.Clamp(Mathf.FloorToInt(minNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
-        scratchAreaMaxY = Mathf.Clamp(Mathf.CeilToInt(maxNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
+        minX = Mathf.Clamp(Mathf.FloorToInt(minNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
+        maxX = Mathf.Clamp(Mathf.CeilToInt(maxNormX * (runtimeTexture.width - 1)), 0, runtimeTexture.width - 1);
+        minY = Mathf.Clamp(Mathf.FloorToInt(minNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
+        maxY = Mathf.Clamp(Mathf.CeilToInt(maxNormY * (runtimeTexture.height - 1)), 0, runtimeTexture.height - 1);
 
-        if (scratchAreaMinX > scratchAreaMaxX)
+        if (minX > maxX)
         {
-            scratchAreaMinX = scratchAreaMaxX;
+            minX = maxX;
         }
 
-        if (scratchAreaMinY > scratchAreaMaxY)
+        if (minY > maxY)
         {
-            scratchAreaMinY = scratchAreaMaxY;
+            minY = maxY;
         }
     }
 
@@ -567,10 +602,10 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         for (int y = 0; y < runtimeTexture.height; y++)
         {
             int rowOffset = y * textureWidth;
-            bool isInsideY = y >= scratchAreaMinY && y <= scratchAreaMaxY;
+            bool isInsideY = y >= scratchAreaTintMinY && y <= scratchAreaTintMaxY;
             for (int x = 0; x < textureWidth; x++)
             {
-                bool isInsideArea = isInsideY && x >= scratchAreaMinX && x <= scratchAreaMaxX;
+                bool isInsideArea = isInsideY && x >= scratchAreaTintMinX && x <= scratchAreaTintMaxX;
                 Color32 tintColor = isInsideArea ? scratchAreaTintColor : currentOutsideTintColor;
                 int index = rowOffset + x;
                 Color32 untintedPixel = untintedPixels[index];
@@ -592,7 +627,18 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
 
         Color32 nextOutsideColor;
-        if (pulseOutsideAreaTint)
+        if (outsideAreaTintMatchedToScratchArea || scratchedPercent >= outsideAreaTintMatchThresholdPercent)
+        {
+            outsideAreaTintPulseLerp = Mathf.Clamp01(outsideAreaTintPulseLerp + Time.deltaTime * outsideAreaTintPulseSpeed);
+            if (outsideAreaTintPulseLerp >= 1f)
+            {
+                outsideAreaTintMatchedToScratchArea = true;
+            }
+
+            Color matched = Color.Lerp((Color)outsideAreaTintColor, (Color)scratchAreaTintColor, outsideAreaTintPulseLerp);
+            nextOutsideColor = (Color32)matched;
+        }
+        else if (pulseOutsideAreaTint)
         {
             if (outsideAreaTintPauseTimer > 0f)
             {

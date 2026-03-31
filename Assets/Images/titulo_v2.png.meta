@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 8dbdc252410420a43a37ea1f948ba0d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3322538065562380237
+    second: titulo_v2_0
+  - first:
+      213: 418849802471956282
+    second: titulo_v2_1
+  - first:
+      213: -4187510733809819982
+    second: titulo_v2_2
+  - first:
+      213: 4486686783075446070
+    second: titulo_v2_3
+  - first:
+      213: 9071370790126622210
+    second: titulo_v2_4
+  - first:
+      213: 369732288280782432
+    second: titulo_v2_5
+  - first:
+      213: 8337086453155030510
+    second: titulo_v2_6
+  - first:
+      213: 457532717132183969
+    second: titulo_v2_7
+  - first:
+      213: 5067275828339220163
+    second: titulo_v2_8
+  - first:
+      213: 2871251215283118215
+    second: titulo_v2_9
+  - first:
+      213: -2704269252141312520
+    second: titulo_v2_10
+  - first:
+      213: 8317343756523752808
+    second: titulo_v2_11
+  - first:
+      213: 8647480511005463667
+    second: titulo_v2_12
+  - first:
+      213: -6243965583861866386
+    second: titulo_v2_13
+  - first:
+      213: -7967514685637354930
+    second: titulo_v2_14
+  - first:
+      213: -6164475180944281369
+    second: titulo_v2_15
+  - first:
+      213: -8903774707974718298
+    second: titulo_v2_16
+  - first:
+      213: -5874414097507687868
+    second: titulo_v2_17
+  - first:
+      213: 1429062555223144501
+    second: titulo_v2_18
+  - first:
+      213: 19840242814562303
+    second: titulo_v2_19
+  - first:
+      213: -9166313332941724737
+    second: titulo_v2_20
+  - first:
+      213: -8626794875600127855
+    second: titulo_v2_21
+  - first:
+      213: -4622115217789994877
+    second: titulo_v2_22
+  - first:
+      213: 6818180094858037779
+    second: titulo_v2_23
+  - first:
+      213: -6875988740898348787
+    second: titulo_v2_24
+  - first:
+      213: -9192776811122231949
+    second: titulo_v2_25
+  - first:
+      213: -7862395897268783232
+    second: titulo_v2_26
+  - first:
+      213: -3079845394339456294
+    second: titulo_v2_27
+  - first:
+      213: 3799793180516934178
+    second: titulo_v2_28
+  - first:
+      213: -7481380830153861676
+    second: titulo_v2_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: titulo_v2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 107
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc72f8e54c60c1e20800000000000000
+      internalID: 3322538065562380237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 165
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f559a1dad00d500800000000000000
+      internalID: 418849802471956282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 162
+        width: 106
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be512a8c29f2e5c0800000000000000
+      internalID: -4187510733809819982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_3
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 165
+        width: 100
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63de6a39bd9e34e30800000000000000
+      internalID: 4486686783075446070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_4
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 165
+        width: 95
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2061a53ebabf3ed70800000000000000
+      internalID: 9071370790126622210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_5
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 165
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066e7f8ae8d812500800000000000000
+      internalID: 369732288280782432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_6
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 165
+        width: 95
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5e60615f743b370800000000000000
+      internalID: 8337086453155030510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_7
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 165
+        width: 104
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a978c5059b795600800000000000000
+      internalID: 457532717132183969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_8
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 161
+        width: 151
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce151fa484925640800000000000000
+      internalID: 5067275828339220163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_9
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 162
+        width: 105
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780ebdb84cbb8d720800000000000000
+      internalID: 2871251215283118215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_10
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 165
+        width: 95
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f51b196171887ad0800000000000000
+      internalID: -2704269252141312520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_11
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 165
+        width: 104
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d496254142d6370800000000000000
+      internalID: 8317343756523752808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_12
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 165
+        width: 123
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374189c55b5020870800000000000000
+      internalID: 8647480511005463667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e602628226af859a0800000000000000
+      internalID: -6243965583861866386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_14
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1
+        width: 74
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a90eb6b93bd6190800000000000000
+      internalID: -7967514685637354930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_15
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1
+        width: 79
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0ba15db72637aa0800000000000000
+      internalID: -6164475180944281369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_16
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 0
+        width: 93
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac3f0bc3107f6480800000000000000
+      internalID: -8903774707974718298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_17
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1
+        width: 76
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442e1869083e97ea0800000000000000
+      internalID: -5874414097507687868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_18
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1
+        width: 70
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53833ed82dc05d310800000000000000
+      internalID: 1429062555223144501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_19
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 0
+        width: 62
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff2831889c764000800000000000000
+      internalID: 19840242814562303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_20
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 1
+        width: 92
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3e412c696bac080800000000000000
+      internalID: -9166313332941724737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_21
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 0
+        width: 78
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198b1b174c7774880800000000000000
+      internalID: -8626794875600127855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_22
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1
+        width: 70
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38833bcc2b2fadfb0800000000000000
+      internalID: -4622115217789994877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_23
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 0
+        width: 77
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a07a80caa0f9e50800000000000000
+      internalID: 6818180094858037779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_24
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 78
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d012b23bba49390a0800000000000000
+      internalID: -6875988740898348787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_25
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3757c991232bc6080800000000000000
+      internalID: -9192776811122231949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_26
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 1
+        width: 92
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0873ec3969823e290800000000000000
+      internalID: -7862395897268783232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_27
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 1
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada164b7ee03245d0800000000000000
+      internalID: -3079845394339456294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_28
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 0
+        width: 93
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222e9a8f3c39bb430800000000000000
+      internalID: 3799793180516934178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_v2_29
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 0
+        width: 78
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d51345e5cbcc2890800000000000000
+      internalID: -7481380830153861676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      titulo_v2_0: 3322538065562380237
+      titulo_v2_1: 418849802471956282
+      titulo_v2_10: -2704269252141312520
+      titulo_v2_11: 8317343756523752808
+      titulo_v2_12: 8647480511005463667
+      titulo_v2_13: -6243965583861866386
+      titulo_v2_14: -7967514685637354930
+      titulo_v2_15: -6164475180944281369
+      titulo_v2_16: -8903774707974718298
+      titulo_v2_17: -5874414097507687868
+      titulo_v2_18: 1429062555223144501
+      titulo_v2_19: 19840242814562303
+      titulo_v2_2: -4187510733809819982
+      titulo_v2_20: -9166313332941724737
+      titulo_v2_21: -8626794875600127855
+      titulo_v2_22: -4622115217789994877
+      titulo_v2_23: 6818180094858037779
+      titulo_v2_24: -6875988740898348787
+      titulo_v2_25: -9192776811122231949
+      titulo_v2_26: -7862395897268783232
+      titulo_v2_27: -3079845394339456294
+      titulo_v2_28: 3799793180516934178
+      titulo_v2_29: -7481380830153861676
+      titulo_v2_3: 4486686783075446070
+      titulo_v2_4: 9071370790126622210
+      titulo_v2_5: 369732288280782432
+      titulo_v2_6: 8337086453155030510
+      titulo_v2_7: 457532717132183969
+      titulo_v2_8: 5067275828339220163
+      titulo_v2_9: 2871251215283118215
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
