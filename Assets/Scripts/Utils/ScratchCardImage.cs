@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Globalization;
 using System;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
@@ -49,6 +50,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     [SerializeField]
     private GameObject arrowImage;
+    [SerializeField]
+    private GameObject idleTimeoutAnimationObject;
 
     [Header("Scratch Progress")]
     [Range(0f, 100f)]
@@ -89,6 +92,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private bool outsideAreaTintMatchedToScratchArea;
     private Color32 currentOutsideAreaTint;
     private bool hasHandledIdleCompletion;
+    private Animator idleTimeoutAnimator;
+    private Coroutine idleTimeoutFlowCoroutine;
+    private Coroutine resetScratchDelayedCoroutine;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -112,6 +118,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         targetRawImage.material = null;
         targetRawImage.color = Color.white;
         targetRawImage.uvRect = new Rect(0f, 0f, 1f, 1f);
+        if (idleTimeoutAnimationObject != null)
+        {
+            idleTimeoutAnimationObject.SetActive(false);
+            idleTimeoutAnimator = idleTimeoutAnimationObject.GetComponent<Animator>();
+        }
         InitializeBrush();
         InitializeRuntimeTexture();
     }
@@ -192,8 +203,12 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                         SaveLog("PROTEGEU", "INFO", logTags, scratchedPercentAtReset);
                     }
 
-                    // ResetScratch();
-                    UIManager.Instance.OpenScreen("THANKS");
+                    if (idleTimeoutFlowCoroutine != null)
+                    {
+                        StopCoroutine(idleTimeoutFlowCoroutine);
+                    }
+
+                    idleTimeoutFlowCoroutine = StartCoroutine(PlayIdleTimeoutAnimationThenOpenThanks());
                 }
             }
         }
@@ -226,6 +241,28 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     {
         InitializeRuntimeTexture();
         ScratchReset?.Invoke();
+        arrowImage.SetActive(true);
+    }
+
+    public void ResetScratchDelayed(float delaySeconds)
+    {
+        if (resetScratchDelayedCoroutine != null)
+        {
+            StopCoroutine(resetScratchDelayedCoroutine);
+        }
+
+        resetScratchDelayedCoroutine = StartCoroutine(ResetScratchDelayedCoroutine(delaySeconds));
+    }
+
+    private IEnumerator ResetScratchDelayedCoroutine(float delaySeconds)
+    {
+        if (delaySeconds > 0f)
+        {
+            yield return new WaitForSeconds(delaySeconds);
+        }
+
+        resetScratchDelayedCoroutine = null;
+        ResetScratch();
     }
 
     private bool HandleTouchInputFallback()
@@ -311,6 +348,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
             Destroy(runtimeTexture);
         }
 
+
         runtimeTexture = ExtractTexture(originalTexture);
         runtimeTexture.filterMode = FilterMode.Point;
         runtimeTexture.wrapMode = TextureWrapMode.Clamp;
@@ -344,6 +382,74 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         isScratched = false;
         currentIdleTime = 0f;
         hasHandledIdleCompletion = false;
+    }
+
+    private IEnumerator PlayIdleTimeoutAnimationThenOpenThanks()
+    {
+        if (idleTimeoutAnimationObject == null)
+        {
+            OpenThanksScreen();
+            yield break;
+        }
+
+        idleTimeoutAnimationObject.SetActive(true);
+        ResetScratchDelayed(3f);
+
+        if (idleTimeoutAnimator == null)
+        {
+            idleTimeoutAnimator = idleTimeoutAnimationObject.GetComponent<Animator>();
+        }
+
+        if (idleTimeoutAnimator == null)
+        {
+            OpenThanksScreen();
+            yield break;
+        }
+
+        idleTimeoutAnimator.Play(0, 0, 0f);
+        yield return null;
+
+        AnimatorStateInfo initialState = idleTimeoutAnimator.GetCurrentAnimatorStateInfo(0);
+        float animatorSpeed = Mathf.Abs(idleTimeoutAnimator.speed);
+        if (animatorSpeed < 0.01f)
+        {
+            animatorSpeed = 1f;
+        }
+
+        float maxWaitTime = Mathf.Max(initialState.length / animatorSpeed, 0.1f) + 0.2f;
+        float elapsedTime = 0f;
+
+        while (idleTimeoutAnimator.isActiveAndEnabled && idleTimeoutAnimator.gameObject.activeInHierarchy)
+        {
+            AnimatorStateInfo state = idleTimeoutAnimator.GetCurrentAnimatorStateInfo(0);
+            if (!idleTimeoutAnimator.IsInTransition(0) && state.normalizedTime >= 1f)
+            {
+                break;
+            }
+
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= maxWaitTime)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
+        OpenThanksScreen();
+    }
+
+    private void OpenThanksScreen()
+    {
+        if (idleTimeoutAnimationObject != null)
+        {
+            idleTimeoutAnimationObject.SetActive(false);
+        }
+
+        idleTimeoutFlowCoroutine = null;
+        // UIManager.Instance.OpenScreenInstant("THANKS");
+        // SceneManager.LoadScene("SampleScene");  
+        ResetScratch();
     }
 
     private Texture2D ResolveBrushTextureByIndex()
