@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: 3946da07073a80549bf6095b91f41778
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2611015831138261644
+    second: "Toque na \xE1rea  destacada para raspar_0"
+  - first:
+      213: 1781844779734705785
+    second: "Toque na \xE1rea  destacada para raspar_1"
+  - first:
+      213: -1014691317827294132
+    second: "Toque na \xE1rea  destacada para raspar_2"
+  - first:
+      213: 2132420248553763875
+    second: "Toque na \xE1rea  destacada para raspar_3"
+  - first:
+      213: 3288196432108595087
+    second: "Toque na \xE1rea  destacada para raspar_4"
+  - first:
+      213: 1458151051163671492
+    second: "Toque na \xE1rea  destacada para raspar_5"
+  - first:
+      213: 1334395764288397005
+    second: "Toque na \xE1rea  destacada para raspar_6"
+  - first:
+      213: -6668876849935538233
+    second: "Toque na \xE1rea  destacada para raspar_7"
+  - first:
+      213: 4360938596068270124
+    second: "Toque na \xE1rea  destacada para raspar_8"
+  - first:
+      213: 1132570992117662288
+    second: "Toque na \xE1rea  destacada para raspar_9"
+  - first:
+      213: 4604332347056859427
+    second: "Toque na \xE1rea  destacada para raspar_10"
+  - first:
+      213: -4930620954656757978
+    second: "Toque na \xE1rea  destacada para raspar_11"
+  - first:
+      213: 8062411243097009854
+    second: "Toque na \xE1rea  destacada para raspar_12"
+  - first:
+      213: 7989607102911039720
+    second: "Toque na \xE1rea  destacada para raspar_13"
+  - first:
+      213: 6029767511917010740
+    second: "Toque na \xE1rea  destacada para raspar_14"
+  - first:
+      213: 1911363785195801661
+    second: "Toque na \xE1rea  destacada para raspar_15"
+  - first:
+      213: -7672868702820701445
+    second: "Toque na \xE1rea  destacada para raspar_16"
+  - first:
+      213: 8262507203020574727
+    second: "Toque na \xE1rea  destacada para raspar_17"
+  - first:
+      213: 1678286292016396019
+    second: "Toque na \xE1rea  destacada para raspar_18"
+  - first:
+      213: -2217054309835179421
+    second: "Toque na \xE1rea  destacada para raspar_19"
+  - first:
+      213: -5143748623350244543
+    second: "Toque na \xE1rea  destacada para raspar_20"
+  - first:
+      213: -6767247657515973656
+    second: "Toque na \xE1rea  destacada para raspar_21"
+  - first:
+      213: 3611001027997545083
+    second: "Toque na \xE1rea  destacada para raspar_22"
+  - first:
+      213: -7943442280171628099
+    second: "Toque na \xE1rea  destacada para raspar_23"
+  - first:
+      213: -5652861081581452514
+    second: "Toque na \xE1rea  destacada para raspar_24"
+  - first:
+      213: -7620354834216412987
+    second: "Toque na \xE1rea  destacada para raspar_25"
+  - first:
+      213: 4292365009286977056
+    second: "Toque na \xE1rea  destacada para raspar_26"
+  - first:
+      213: 1322234190669081632
+    second: "Toque na \xE1rea  destacada para raspar_27"
+  - first:
+      213: 8471275608323036683
+    second: "Toque na \xE1rea  destacada para raspar_28"
+  - first:
+      213: 6921585259543424938
+    second: "Toque na \xE1rea  destacada para raspar_29"
+  - first:
+      213: -5289828266006252871
+    second: "Toque na \xE1rea  destacada para raspar_30"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47525127feec3cbd0800000000000000
+      internalID: -2611015831138261644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_1"
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 98
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976a8f4f2626ab810800000000000000
+      internalID: 1781844779734705785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_2"
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 89
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c2b3c5f971be1f0800000000000000
+      internalID: -1014691317827294132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_3"
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 98
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324b5e20be0e79d10800000000000000
+      internalID: 2132420248553763875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_4"
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 98
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f872a8fbb3502ad20800000000000000
+      internalID: 3288196432108595087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_5"
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 99
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb1979c7a46c3410800000000000000
+      internalID: 1458151051163671492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_6"
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 98
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce1230b0e9b48210800000000000000
+      internalID: 1334395764288397005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_7"
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 98
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c724c496d36373a0800000000000000
+      internalID: -6668876849935538233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_8"
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 129
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20a0f14c8a258c30800000000000000
+      internalID: 4360938596068270124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_9"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 99
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052c5141153b7bf00800000000000000
+      internalID: 1132570992117662288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_10"
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 98
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3292a26ffdfd5ef30800000000000000
+      internalID: 4604332347056859427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_11"
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 98
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62726938d5ae29bb0800000000000000
+      internalID: -4930620954656757978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_12"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebea9e12f4073ef60800000000000000
+      internalID: 8062411243097009854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_13"
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 53
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e843ff4459c0ee60800000000000000
+      internalID: 7989607102911039720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_14"
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 53
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f1102ea990ea350800000000000000
+      internalID: 6029767511917010740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_15"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 54
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c442d5c37868a10800000000000000
+      internalID: 1911363785195801661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_16"
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 53
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfae820419e748590800000000000000
+      internalID: -7672868702820701445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_17"
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 53
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700d52646825aa270800000000000000
+      internalID: 8262507203020574727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_18"
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 53
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f67b0b9d787a4710800000000000000
+      internalID: 1678286292016396019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_19"
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 53
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a76860ad07b31e0800000000000000
+      internalID: -2217054309835179421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_20"
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 53
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14bdd4b31ebbd98b0800000000000000
+      internalID: -5143748623350244543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_21"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e38aa22c18e512a0800000000000000
+      internalID: -6767247657515973656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_22"
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 8
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b723d559d4adc1230800000000000000
+      internalID: 3611001027997545083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_23"
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 9
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db91d84155933c190800000000000000
+      internalID: -7943442280171628099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_24"
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 8
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1305b3ebc00d81b0800000000000000
+      internalID: -5652861081581452514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_25"
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 9
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8991417af0f3690800000000000000
+      internalID: -7620354834216412987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_26"
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 8
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026ddd8eb3b819b30800000000000000
+      internalID: 4292365009286977056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_27"
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 8
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ce4bcadf4895210800000000000000
+      internalID: 1322234190669081632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_28"
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0696847844009570800000000000000
+      internalID: 8471275608323036683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_29"
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 8
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf6aa51f196e0060800000000000000
+      internalID: 6921585259543424938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Toque na \xE1rea  destacada para raspar_30"
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 9
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b270e10831c696b0800000000000000
+      internalID: -5289828266006252871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Toque na \xE1rea  destacada para raspar_0": -2611015831138261644
+      "Toque na \xE1rea  destacada para raspar_1": 1781844779734705785
+      "Toque na \xE1rea  destacada para raspar_10": 4604332347056859427
+      "Toque na \xE1rea  destacada para raspar_11": -4930620954656757978
+      "Toque na \xE1rea  destacada para raspar_12": 8062411243097009854
+      "Toque na \xE1rea  destacada para raspar_13": 7989607102911039720
+      "Toque na \xE1rea  destacada para raspar_14": 6029767511917010740
+      "Toque na \xE1rea  destacada para raspar_15": 1911363785195801661
+      "Toque na \xE1rea  destacada para raspar_16": -7672868702820701445
+      "Toque na \xE1rea  destacada para raspar_17": 8262507203020574727
+      "Toque na \xE1rea  destacada para raspar_18": 1678286292016396019
+      "Toque na \xE1rea  destacada para raspar_19": -2217054309835179421
+      "Toque na \xE1rea  destacada para raspar_2": -1014691317827294132
+      "Toque na \xE1rea  destacada para raspar_20": -5143748623350244543
+      "Toque na \xE1rea  destacada para raspar_21": -6767247657515973656
+      "Toque na \xE1rea  destacada para raspar_22": 3611001027997545083
+      "Toque na \xE1rea  destacada para raspar_23": -7943442280171628099
+      "Toque na \xE1rea  destacada para raspar_24": -5652861081581452514
+      "Toque na \xE1rea  destacada para raspar_25": -7620354834216412987
+      "Toque na \xE1rea  destacada para raspar_26": 4292365009286977056
+      "Toque na \xE1rea  destacada para raspar_27": 1322234190669081632
+      "Toque na \xE1rea  destacada para raspar_28": 8471275608323036683
+      "Toque na \xE1rea  destacada para raspar_29": 6921585259543424938
+      "Toque na \xE1rea  destacada para raspar_3": 2132420248553763875
+      "Toque na \xE1rea  destacada para raspar_30": -5289828266006252871
+      "Toque na \xE1rea  destacada para raspar_4": 3288196432108595087
+      "Toque na \xE1rea  destacada para raspar_5": 1458151051163671492
+      "Toque na \xE1rea  destacada para raspar_6": 1334395764288397005
+      "Toque na \xE1rea  destacada para raspar_7": -6668876849935538233
+      "Toque na \xE1rea  destacada para raspar_8": 4360938596068270124
+      "Toque na \xE1rea  destacada para raspar_9": 1132570992117662288
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

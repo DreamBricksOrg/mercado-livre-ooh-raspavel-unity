@@ -47,6 +47,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField, Tooltip("If true, resets after idle time.")]
     private bool resetOnIdle = true;
 
+    [SerializeField]
+    private GameObject arrowImage;
+
     [Header("Scratch Progress")]
     [Range(0f, 100f)]
     public float scratchedPercent;
@@ -85,6 +88,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private float outsideAreaTintPauseTimer;
     private bool outsideAreaTintMatchedToScratchArea;
     private Color32 currentOutsideAreaTint;
+    private bool hasHandledIdleCompletion;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -176,6 +180,12 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
                 currentIdleTime += Time.deltaTime;
                 if (currentIdleTime >= idleResetTime)
                 {
+                    if (hasHandledIdleCompletion)
+                    {
+                        return;
+                    }
+
+                    hasHandledIdleCompletion = true;
                     float scratchedPercentAtReset = scratchedPercent;
                     if (scratchedPercentAtReset > LogThresholdPercent)
                     {
@@ -333,6 +343,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         
         isScratched = false;
         currentIdleTime = 0f;
+        hasHandledIdleCompletion = false;
     }
 
     private Texture2D ResolveBrushTextureByIndex()
@@ -637,6 +648,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
             Color matched = Color.Lerp((Color)outsideAreaTintColor, (Color)scratchAreaTintColor, outsideAreaTintPulseLerp);
             nextOutsideColor = (Color32)matched;
+
+            arrowImage.SetActive(false);
+            
         }
         else if (pulseOutsideAreaTint)
         {
