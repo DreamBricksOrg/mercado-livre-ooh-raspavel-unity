@@ -95,6 +95,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Animator idleTimeoutAnimator;
     private Coroutine idleTimeoutFlowCoroutine;
     private Coroutine resetScratchDelayedCoroutine;
+    private bool isScratchInputLocked;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -228,12 +229,22 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isScratchInputLocked)
+        {
+            return;
+        }
+
         hasLastPoint = false;
         TryScratchAtScreenPoint(eventData.position, eventData.pressEventCamera);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (isScratchInputLocked)
+        {
+            return;
+        }
+
         TryScratchAtScreenPoint(eventData.position, eventData.pressEventCamera);
     }
 
@@ -242,6 +253,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         InitializeRuntimeTexture();
         ScratchReset?.Invoke();
         arrowImage.SetActive(true);
+        isScratchInputLocked = idleTimeoutFlowCoroutine != null;
     }
 
     public void ResetScratchDelayed(float delaySeconds)
@@ -267,6 +279,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private bool HandleTouchInputFallback()
     {
+        if (isScratchInputLocked)
+        {
+            return false;
+        }
+
         if (Input.touchCount == 0)
         {
             return false;
@@ -304,6 +321,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private bool HandleMouseInputFallback()
     {
+        if (isScratchInputLocked)
+        {
+            return false;
+        }
+
         if (!Input.GetMouseButton(0))
         {
             return false;
@@ -393,6 +415,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
 
         idleTimeoutAnimationObject.SetActive(true);
+        isScratchInputLocked = true;
         ResetScratchDelayed(3f);
 
         if (idleTimeoutAnimator == null)
@@ -447,6 +470,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
 
         idleTimeoutFlowCoroutine = null;
+        isScratchInputLocked = false;
         // UIManager.Instance.OpenScreenInstant("THANKS");
         // SceneManager.LoadScene("SampleScene");  
         ResetScratch();
@@ -489,6 +513,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private void TryScratchAtScreenPoint(Vector2 screenPoint, Camera eventCamera)
     {
+        if (isScratchInputLocked)
+        {
+            return;
+        }
+
         if (runtimeTexture == null || pixels == null)
         {
             return;
