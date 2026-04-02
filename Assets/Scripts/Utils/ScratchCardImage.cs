@@ -62,6 +62,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private GameObject scratchInputBlockerObject;
     [SerializeField]
     private float idleModeResumeDelayAfterTimeout = 2f;
+    [SerializeField]
+    private float idleModeResumeTransitionDuration = 0.45f;
 
     [Header("Scratch Progress")]
     [Range(0f, 100f)]
@@ -109,6 +111,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Coroutine enableIdleVisualModeCoroutine;
     private bool isScratchInputLocked;
     private bool isIdleVisualModeEnabled = true;
+    private Graphic arrowGraphic;
+    private Color arrowGraphicBaseColor = Color.white;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -132,6 +136,14 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         targetRawImage.material = null;
         targetRawImage.color = Color.white;
         targetRawImage.uvRect = new Rect(0f, 0f, 1f, 1f);
+        if (arrowImage != null)
+        {
+            arrowGraphic = arrowImage.GetComponentInChildren<Graphic>(true);
+            if (arrowGraphic != null)
+            {
+                arrowGraphicBaseColor = arrowGraphic.color;
+            }
+        }
         if (idleTimeoutAnimationObject != null)
         {
             idleTimeoutAnimationObject.SetActive(false);
@@ -615,7 +627,39 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
             yield break;
         }
 
-        isIdleVisualModeEnabled = true;
+        float transitionDuration = Mathf.Max(0.01f, idleModeResumeTransitionDuration);
+        float elapsed = 0f;
+        Color32 startInsideColor = currentInsideAreaTint;
+        Color32 startOutsideColor = currentOutsideAreaTint;
+        Color targetInsideColor = scratchAreaTintColor;
+        Color targetOutsideColor = outsideAreaTintColor;
+
+        if (arrowImage != null)
+        {
+            arrowImage.SetActive(true);
+        }
+
+        while (elapsed < transitionDuration)
+        {
+            float normalized = Mathf.Clamp01(elapsed / transitionDuration);
+            float eased = Mathf.SmoothStep(0f, 1f, normalized);
+
+            currentInsideAreaTint = (Color32)Color.Lerp((Color)startInsideColor, targetInsideColor, eased);
+            currentOutsideAreaTint = (Color32)Color.Lerp((Color)startOutsideColor, targetOutsideColor, eased);
+            ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
+            textureDirty = true;
+
+            if (arrowGraphic != null)
+            {
+                Color arrowColor = arrowGraphicBaseColor;
+                arrowColor.a *= eased;
+                arrowGraphic.color = arrowColor;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
         insideAreaTintPulseLerp = 0f;
         insideAreaTintPulseDirection = 1;
         insideAreaTintPauseTimer = 0f;
@@ -624,7 +668,13 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         currentOutsideAreaTint = outsideAreaTintColor;
         ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
         textureDirty = true;
-        arrowImage.SetActive(true);
+
+        if (arrowGraphic != null)
+        {
+            arrowGraphic.color = arrowGraphicBaseColor;
+        }
+
+        isIdleVisualModeEnabled = true;
     }
 
     private void EraseAlongLine(Vector2Int from, Vector2Int to)
