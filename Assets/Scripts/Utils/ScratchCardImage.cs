@@ -60,6 +60,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private GameObject idleTimeoutAnimationObject;
     [SerializeField]
     private GameObject scratchInputBlockerObject;
+    [SerializeField]
+    private float idleModeResumeDelayAfterTimeout = 2f;
 
     [Header("Scratch Progress")]
     [Range(0f, 100f)]
@@ -104,7 +106,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Animator idleTimeoutAnimator;
     private Coroutine idleTimeoutFlowCoroutine;
     private Coroutine resetScratchDelayedCoroutine;
+    private Coroutine enableIdleVisualModeCoroutine;
     private bool isScratchInputLocked;
+    private bool isIdleVisualModeEnabled = true;
     public event Action ScratchStarted;
     public event Action ScratchReset;
 
@@ -259,9 +263,20 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void ResetScratch()
     {
+        if (enableIdleVisualModeCoroutine != null)
+        {
+            StopCoroutine(enableIdleVisualModeCoroutine);
+            enableIdleVisualModeCoroutine = null;
+        }
+
         InitializeRuntimeTexture();
         ScratchReset?.Invoke();
-        arrowImage.SetActive(true);
+        isIdleVisualModeEnabled = false;
+        currentInsideAreaTint = Color.white;
+        currentOutsideAreaTint = Color.white;
+        ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
+        textureDirty = true;
+        arrowImage.SetActive(false);
         isScratchInputLocked = idleTimeoutFlowCoroutine != null;
     }
 
@@ -484,6 +499,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         // UIManager.Instance.OpenScreenInstant("THANKS");
         // SceneManager.LoadScene("SampleScene");  
         ResetScratch();
+        enableIdleVisualModeCoroutine = StartCoroutine(EnableIdleVisualModeAfterDelay(idleModeResumeDelayAfterTimeout));
     }
 
     private Texture2D ResolveBrushTextureByIndex()
@@ -584,6 +600,31 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
 
         return scratchInputBlockerObject != null && scratchInputBlockerObject.activeInHierarchy;
+    }
+
+    private IEnumerator EnableIdleVisualModeAfterDelay(float delaySeconds)
+    {
+        if (delaySeconds > 0f)
+        {
+            yield return new WaitForSeconds(delaySeconds);
+        }
+
+        enableIdleVisualModeCoroutine = null;
+        if (isScratched)
+        {
+            yield break;
+        }
+
+        isIdleVisualModeEnabled = true;
+        insideAreaTintPulseLerp = 0f;
+        insideAreaTintPulseDirection = 1;
+        insideAreaTintPauseTimer = 0f;
+        insideAreaTintMatchedToOutsideArea = false;
+        currentInsideAreaTint = scratchAreaTintColor;
+        currentOutsideAreaTint = outsideAreaTintColor;
+        ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
+        textureDirty = true;
+        arrowImage.SetActive(true);
     }
 
     private void EraseAlongLine(Vector2Int from, Vector2Int to)
@@ -788,6 +829,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private void UpdateInsideAreaTintPulse()
     {
         if (runtimeTexture == null || pixels == null || untintedPixels == null)
+        {
+            return;
+        }
+
+        if (!isIdleVisualModeEnabled)
         {
             return;
         }
