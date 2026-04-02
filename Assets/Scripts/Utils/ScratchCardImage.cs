@@ -6,6 +6,7 @@ using System.Collections;
 using System.Globalization;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(RawImage))]
 public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
@@ -32,15 +33,20 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     [SerializeField]
     private Color32 scratchAreaTintColor = new Color32(255, 255, 255, 255);
     [SerializeField]
-    private bool pulseOutsideAreaTint = true;
+    [FormerlySerializedAs("pulseOutsideAreaTint")]
+    private bool pulseInsideAreaTint = true;
     [SerializeField]
-    private float outsideAreaTintPulseSpeed = 0.9f;
+    [FormerlySerializedAs("outsideAreaTintPulseSpeed")]
+    private float insideAreaTintPulseSpeed = 0.9f;
     [SerializeField]
-    private float outsideAreaTintPauseAtHighlight = 2f;
+    [FormerlySerializedAs("outsideAreaTintPauseAtHighlight")]
+    private float insideAreaTintPauseAtHighlight = 2f;
     [SerializeField]
-    private float outsideAreaTintPauseAtBase = 0.2f;
+    [FormerlySerializedAs("outsideAreaTintPauseAtBase")]
+    private float insideAreaTintPauseAtBase = 0.2f;
     [SerializeField]
-    private float outsideAreaTintMatchThresholdPercent = 5f;
+    [FormerlySerializedAs("outsideAreaTintMatchThresholdPercent")]
+    private float insideAreaTintMatchThresholdPercent = 5f;
 
     [Header("Reset Settings")]
     [SerializeField, Tooltip("Time in seconds to reset after no touch.")]
@@ -52,6 +58,8 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private GameObject arrowImage;
     [SerializeField]
     private GameObject idleTimeoutAnimationObject;
+    [SerializeField]
+    private GameObject scratchInputBlockerObject;
 
     [Header("Scratch Progress")]
     [Range(0f, 100f)]
@@ -86,10 +94,11 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
     private int scratchAreaTintMinY;
     private int scratchAreaTintMaxY;
     private Color32[] untintedPixels;
-    private float outsideAreaTintPulseLerp;
-    private int outsideAreaTintPulseDirection = 1;
-    private float outsideAreaTintPauseTimer;
-    private bool outsideAreaTintMatchedToScratchArea;
+    private float insideAreaTintPulseLerp;
+    private int insideAreaTintPulseDirection = 1;
+    private float insideAreaTintPauseTimer;
+    private bool insideAreaTintMatchedToOutsideArea;
+    private Color32 currentInsideAreaTint;
     private Color32 currentOutsideAreaTint;
     private bool hasHandledIdleCompletion;
     private Animator idleTimeoutAnimator;
@@ -105,9 +114,9 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         idleResetTime = ReadFloatSetting("idleResetTime", 5f);
         brushSize = ReadIntSetting("brushSize", 120);
         brushTextureIndex = ReadIntSetting("brushTextureIndex", 3);
-        outsideAreaTintPulseSpeed = ReadFloatSetting("pulseSpeed", outsideAreaTintPulseSpeed);
-        outsideAreaTintPauseAtHighlight = ReadFloatSetting("outsideAreaTintPauseAtHighlight", outsideAreaTintPauseAtHighlight);
-        outsideAreaTintPauseAtBase = ReadFloatSetting("outsideAreaTintPauseAtBase", outsideAreaTintPauseAtBase);
+        insideAreaTintPulseSpeed = ReadFloatSetting("pulseSpeed", insideAreaTintPulseSpeed);
+        insideAreaTintPauseAtHighlight = ReadFloatSetting("outsideAreaTintPauseAtHighlight", insideAreaTintPauseAtHighlight);
+        insideAreaTintPauseAtBase = ReadFloatSetting("outsideAreaTintPauseAtBase", insideAreaTintPauseAtBase);
 
         logTags.Add("scratch");
 
@@ -174,7 +183,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private void Update()
     {
-        UpdateOutsideAreaTintPulse();
+        UpdateInsideAreaTintPulse();
 
         bool handledTouch = HandleTouchInputFallback();
         bool handledMouse = HandleMouseInputFallback();
@@ -229,7 +238,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (isScratchInputLocked)
+        if (IsScratchInteractionBlocked())
         {
             return;
         }
@@ -240,7 +249,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isScratchInputLocked)
+        if (IsScratchInteractionBlocked())
         {
             return;
         }
@@ -279,7 +288,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private bool HandleTouchInputFallback()
     {
-        if (isScratchInputLocked)
+        if (IsScratchInteractionBlocked())
         {
             return false;
         }
@@ -321,7 +330,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private bool HandleMouseInputFallback()
     {
-        if (isScratchInputLocked)
+        if (IsScratchInteractionBlocked())
         {
             return false;
         }
@@ -380,12 +389,13 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         Array.Copy(pixels, untintedPixels, pixels.Length);
         UpdateScratchBounds();
         UpdateTintBounds();
-        outsideAreaTintPulseLerp = 0f;
-        outsideAreaTintPulseDirection = 1;
-        outsideAreaTintPauseTimer = 0f;
-        outsideAreaTintMatchedToScratchArea = false;
+        insideAreaTintPulseLerp = 0f;
+        insideAreaTintPulseDirection = 1;
+        insideAreaTintPauseTimer = 0f;
+        insideAreaTintMatchedToOutsideArea = false;
+        currentInsideAreaTint = scratchAreaTintColor;
         currentOutsideAreaTint = outsideAreaTintColor;
-        ApplyScratchAreaTint(currentOutsideAreaTint);
+        ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
         maxAlphaSum = (long)(scratchAreaMaxX - scratchAreaMinX + 1) * (scratchAreaMaxY - scratchAreaMinY + 1) * 255L;
         currentAlphaSum = 0L;
         for (int y = scratchAreaMinY; y <= scratchAreaMaxY; y++)
@@ -513,7 +523,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private void TryScratchAtScreenPoint(Vector2 screenPoint, Camera eventCamera)
     {
-        if (isScratchInputLocked)
+        if (IsScratchInteractionBlocked())
         {
             return;
         }
@@ -564,6 +574,16 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         hasLastPoint = true;
         textureDirty = true;
         isScratched = true;
+    }
+
+    private bool IsScratchInteractionBlocked()
+    {
+        if (isScratchInputLocked)
+        {
+            return true;
+        }
+
+        return scratchInputBlockerObject != null && scratchInputBlockerObject.activeInHierarchy;
     }
 
     private void EraseAlongLine(Vector2Int from, Vector2Int to)
@@ -737,7 +757,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
     }
 
-    private void ApplyScratchAreaTint(Color32 currentOutsideTintColor)
+    private void ApplyScratchAreaTint(Color32 currentInsideTintColor, Color32 currentOutsideTintColor)
     {
         if (pixels == null || runtimeTexture == null || untintedPixels == null)
         {
@@ -752,7 +772,7 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
             for (int x = 0; x < textureWidth; x++)
             {
                 bool isInsideArea = isInsideY && x >= scratchAreaTintMinX && x <= scratchAreaTintMaxX;
-                Color32 tintColor = isInsideArea ? scratchAreaTintColor : currentOutsideTintColor;
+                Color32 tintColor = isInsideArea ? currentInsideTintColor : currentOutsideTintColor;
                 int index = rowOffset + x;
                 Color32 untintedPixel = untintedPixels[index];
                 Color32 pixel = untintedPixel;
@@ -765,69 +785,75 @@ public class ScratchCardImage : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
     }
 
-    private void UpdateOutsideAreaTintPulse()
+    private void UpdateInsideAreaTintPulse()
     {
         if (runtimeTexture == null || pixels == null || untintedPixels == null)
         {
             return;
         }
 
+        Color32 nextInsideColor;
         Color32 nextOutsideColor;
-        if (outsideAreaTintMatchedToScratchArea || scratchedPercent >= outsideAreaTintMatchThresholdPercent)
+        if (insideAreaTintMatchedToOutsideArea || scratchedPercent >= insideAreaTintMatchThresholdPercent)
         {
-            outsideAreaTintPulseLerp = Mathf.Clamp01(outsideAreaTintPulseLerp + Time.deltaTime * outsideAreaTintPulseSpeed);
-            if (outsideAreaTintPulseLerp >= 1f)
+            insideAreaTintPulseLerp = Mathf.Clamp01(insideAreaTintPulseLerp + Time.deltaTime * insideAreaTintPulseSpeed);
+            if (insideAreaTintPulseLerp >= 1f)
             {
-                outsideAreaTintMatchedToScratchArea = true;
+                insideAreaTintMatchedToOutsideArea = true;
             }
 
-            Color matched = Color.Lerp((Color)outsideAreaTintColor, (Color)scratchAreaTintColor, outsideAreaTintPulseLerp);
-            nextOutsideColor = (Color32)matched;
+            Color matchedInside = Color.Lerp((Color)scratchAreaTintColor, Color.white, insideAreaTintPulseLerp);
+            Color matchedOutside = Color.Lerp((Color)outsideAreaTintColor, Color.white, insideAreaTintPulseLerp);
+            nextInsideColor = (Color32)matchedInside;
+            nextOutsideColor = (Color32)matchedOutside;
 
             arrowImage.SetActive(false);
             
         }
-        else if (pulseOutsideAreaTint)
+        else if (pulseInsideAreaTint)
         {
-            if (outsideAreaTintPauseTimer > 0f)
+            if (insideAreaTintPauseTimer > 0f)
             {
-                outsideAreaTintPauseTimer -= Time.deltaTime;
-                if (outsideAreaTintPauseTimer < 0f)
+                insideAreaTintPauseTimer -= Time.deltaTime;
+                if (insideAreaTintPauseTimer < 0f)
                 {
-                    outsideAreaTintPauseTimer = 0f;
+                    insideAreaTintPauseTimer = 0f;
                 }
             }
             else
             {
-                float step = Time.deltaTime * outsideAreaTintPulseSpeed;
-                outsideAreaTintPulseLerp += step * outsideAreaTintPulseDirection;
+                float step = Time.deltaTime * insideAreaTintPulseSpeed;
+                insideAreaTintPulseLerp += step * insideAreaTintPulseDirection;
 
-                if (outsideAreaTintPulseLerp >= 1f)
+                if (insideAreaTintPulseLerp >= 1f)
                 {
-                    outsideAreaTintPulseLerp = 1f;
-                    outsideAreaTintPulseDirection = -1;
-                    outsideAreaTintPauseTimer = Mathf.Max(0f, outsideAreaTintPauseAtHighlight);
+                    insideAreaTintPulseLerp = 1f;
+                    insideAreaTintPulseDirection = -1;
+                    insideAreaTintPauseTimer = Mathf.Max(0f, insideAreaTintPauseAtHighlight);
                 }
-                else if (outsideAreaTintPulseLerp <= 0f)
+                else if (insideAreaTintPulseLerp <= 0f)
                 {
-                    outsideAreaTintPulseLerp = 0f;
-                    outsideAreaTintPulseDirection = 1;
-                    outsideAreaTintPauseTimer = Mathf.Max(0f, outsideAreaTintPauseAtBase);
+                    insideAreaTintPulseLerp = 0f;
+                    insideAreaTintPulseDirection = 1;
+                    insideAreaTintPauseTimer = Mathf.Max(0f, insideAreaTintPauseAtBase);
                 }
             }
 
-            Color interpolated = Color.Lerp((Color)outsideAreaTintColor, (Color)scratchAreaTintColor, outsideAreaTintPulseLerp);
-            nextOutsideColor = (Color32)interpolated;
+            Color interpolated = Color.Lerp((Color)scratchAreaTintColor, (Color)outsideAreaTintColor, insideAreaTintPulseLerp);
+            nextInsideColor = (Color32)interpolated;
+            nextOutsideColor = outsideAreaTintColor;
         }
         else
         {
+            nextInsideColor = scratchAreaTintColor;
             nextOutsideColor = outsideAreaTintColor;
         }
 
-        if (!nextOutsideColor.Equals(currentOutsideAreaTint))
+        if (!nextInsideColor.Equals(currentInsideAreaTint) || !nextOutsideColor.Equals(currentOutsideAreaTint))
         {
+            currentInsideAreaTint = nextInsideColor;
             currentOutsideAreaTint = nextOutsideColor;
-            ApplyScratchAreaTint(currentOutsideAreaTint);
+            ApplyScratchAreaTint(currentInsideAreaTint, currentOutsideAreaTint);
             textureDirty = true;
         }
     }
